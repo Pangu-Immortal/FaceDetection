@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.faceidentification'
+    compileSdk 33
+    aaptOptions.cruncherEnabled = false;
+    aaptOptions.useNewCruncher = false;
+
+    defaultConfig {
+        applicationId "com.qihao.faceidentification"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        externalNativeBuild {
+            cmake {
+               // cppFlags "-std=c++14 -frtti -fexceptions" // 根据情况设置
+                abiFilters 'x86_64', 'armeabi-v7a', 'arm64-v8a' // 根据情况设置
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            externalNativeBuild {
+                cmake{
+                    arguments '-DANDROID_PLATFORM=android-33', '-DANDROID_TOOLCHAIN=clang',
+                            '-DANDROID_ARM_NEON=TRUE'
+                    cFlags '-O3', '-fsigned-char', '-Wformat','-mfpu=neon', '-mfloat-abi=softfp -frtti'
+                    cppFlags '-O3', '-fexceptions', '-fsigned-char',
+                            "-frtti -std=c++14", '-Wformat'
+                }
+            }
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+        aidl true
+    }
+    ndkVersion '23.0.7599858'
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.exifinterface:exifinterface:1.3.6'
+    implementation project(path: ':opencv')
+}
