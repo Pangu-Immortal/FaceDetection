@@ -8,6 +8,10 @@
 
 </div>
 
+<p align="center">
+  <b>⭐ 点击 <a href="https://github.com/Pangu-Immortal/FaceDetection">Star</a>，关注不迷路 ⭐</b>
+</p>
+
 FaceDetection 是在安卓端运行的人脸识别APP，基于opencv以及dlib实现，可进行人脸68点检测，提取人脸特征。
 
 ## 版本
