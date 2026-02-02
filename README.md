@@ -1,4 +1,9 @@
-![访客统计](https://count.getloli.com/get/@FaceDetection?theme=rule34)
+<div align="center">
+
+![萌萌计数器](https://count.getloli.com/get/@FaceDetection?theme=rule34)
+
+</div>
+
 
 # FaceDetection
 
@@ -17,8 +22,6 @@ FaceDetection 具有以下特性：
 - 检测人脸
 - 工作在安卓端
 - 支持多张人脸检测
-
-
 ## 说明
 
 - 项目依赖dlib_face_recognition_resnet_model_v1.dat与shape_predictor_68_face_landmarks.dat模型均存放在assets目录。
@@ -42,8 +45,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
